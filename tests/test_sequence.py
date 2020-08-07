@@ -1,6 +1,7 @@
 import b3
 import unittest
-from common import *
+#from common import *
+from tests.common import *
 
 def get_node(status):
     stub = NodeStub();

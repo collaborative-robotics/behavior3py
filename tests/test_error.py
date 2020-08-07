@@ -1,6 +1,7 @@
 import b3
 import unittest
-from common import *
+#from common import *
+from tests.common import *
 
 class TestError(unittest.TestCase):
     def test_category(self):

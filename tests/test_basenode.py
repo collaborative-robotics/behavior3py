@@ -1,7 +1,8 @@
 import unittest
 import mock
 
-from common import *
+#from common import *
+from tests.common import *
 
 import b3
 
