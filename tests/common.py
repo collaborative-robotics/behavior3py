@@ -16,6 +16,7 @@ class TickStub(object):
 
 class NodeStub(object):
     def __init__(self):
+        self.Cost = 0
         self._execute = mock.Mock()
 
 def create_side_effects(results):
