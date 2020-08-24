@@ -14,36 +14,31 @@ class BaseNode(object):
         self.description = self.description or ''
         self.parameters = {}
         self.properties = {}
-        # custom members for learning
+        # data for learning/adaptation of BTs
         self.Name = "--unnamed--"
-        self.TEST = "TESTING"
         self.BHdebug = 0
-        self.N_leaf_ticks = 0       # only increment if a leaf
-        self.N_ticks_all = 0        # number of ticks
-        self.N_ticks = 0            #
-        self.N_success = 0
-        self.state = 0
+        self.N_ticks = 0            # number of ticks of this node
+        self.N_success = 0          # number of success returns
+        self.state = 0              # a variable on which to condition success probs.
         self.N_tik2 = [0, 0, 0, 0]  # number of ticks on each state
         self.N_suc2 = [0, 0, 0, 0]  # prob success conditioned on state
-        self.Ps = 0.0               # basic P(success)
+        self.Ps = 0.0               # P(success)
         self.P_selector = 0.0       # probability selected by selector S02
         self.Cost = 0               # Cost of ticking this leaf (INT!)
         self.Utility = 0.0	        # U = P/C
         self.Utility_Mode = "RATIO"
         self.suc = 0
         self.fail = 0
-        self.Tree = {}
-
 
 
     # BH  estimate local success probability
     def prob(self):
       if self.N_ticks > 0:
-	self.Ps = float(self.N_success) / float(self.N_ticks)
-	#print "P(s) = ", self.Ps
-	return self.Ps
+	      self.Ps = float(self.N_success) / float(self.N_ticks)
+	      #print "P(s) = ", self.Ps
+	      return self.Ps
       else:
-	return 0.1
+	      return 0.1
 
 
     # BH get Utility for this node
@@ -145,12 +140,11 @@ class BaseNode(object):
         self.open(tick)
 
     def _tick(self, tick):
-        tick._tick_node(self)
-        #self.N_ticks += 1   # used to have this but caused double ticks
+        tick._tick_node(self) 
+        #BH count the ticks
+        self.N_ticks += 1   # used to have this but caused double ticks
         if(self.BHdebug == 1):
             print 'basenode: ', self.Name, " ticked "
-        #BH count the ticks
-        self.N_ticks_all += 1
         status = self.tick(tick)
         #BH count the total cost
         tick.blackboard.inc('TotalCost',self.Cost)

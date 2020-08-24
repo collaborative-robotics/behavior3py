@@ -140,28 +140,5 @@ class BehaviorTree(object):
         blackboard.set('node_count', tick._node_count, self.id)
 
         return state
-    def HMM_create(self): # Automatic creation of HMM function
-        self.size = self.root.scan(self.size) # Determining the size of the Behaviour tree in terms of action sequences
-        self.root.compositeid() # Iding the succes and faliure nodes of the behaviour Tree
-        self.htm = np.zeros((self.size+2,self.size+2))
-        self.htm = self.root.HMM(self.htm) # Calling the function for populating probabilities in the matrix
-        print "The size of the behaviour tree is : ",self.size
-        i = 0
-        # if isinstance(self.root,b3.Sequence):
-        #     js = self.root.children_start+self.root.children_size
-        #     jf = self.size+1
-        # if isinstance(self.root,b3.Priority):
-        #     js = self.size
-        #     jf = self.root.children_start+sel.root.children_size
-        # js = self.root.children_size
-        # jf = self.root.children_size+1
-        # self.htm = np.zeros((self.size+2,self.size+2))
-        # self.htm,i,js,jf,self.root.HMM_build(self.htm,i,js,jf,self.size)
-        # if i != self.size-1 or j != self.size-1:
-        #     print "Build Unsuccesful"
-        #     print self.htm
-        # else:
-        #     print self.htm
-
-
-        #return state
+    
+    
