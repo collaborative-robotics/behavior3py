@@ -93,7 +93,6 @@ class BaseNode(object):
     # BH reset the probability counters
     def p_reset(self):
       self.N_ticks = 0
-      self.N_ticks_all = 0
       self.N_success = 0
       self.Ps = 0
       self.N_tik2 = [0.0,0.0,0.0,0.0]
@@ -105,11 +104,11 @@ class BaseNode(object):
     def report_stats(self):
       print '\n\n',self.Name,'    Statistics'
       print 'N_ticks:            ',self.N_ticks
-      print 'N_ticks_all:        ',self.N_ticks_all
       print 'N_success:          ',self.N_success
       print 'prob                ',self.prob()
       print 'Cost:               ',self.Cost
       print 'Utility:            ',self.get_Utility()
+      print 'Utilty mode:        ',self.Utility_Mode
 
     @property
     def name(self):
@@ -121,6 +120,7 @@ class BaseNode(object):
         if (not tick.blackboard.get('is_open', tick.tree.id, self.id)):
             self._open(tick)
 
+        #print(self.name, ' _execute()')
         status = self._tick(tick)
 
         if (status != b3.RUNNING):
@@ -142,7 +142,7 @@ class BaseNode(object):
     def _tick(self, tick):
         tick._tick_node(self) 
         #BH count the ticks
-        self.N_ticks += 1   # used to have this but caused double ticks
+        self.N_ticks += 1
         if(self.BHdebug == 1):
             print 'basenode: ', self.Name, " ticked "
         status = self.tick(tick)
