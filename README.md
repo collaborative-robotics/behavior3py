@@ -1,6 +1,11 @@
 # BEHAVIOR3PY
 
-This is the official python version of the Behavior3 library, originally written in Javascript.
+Base BT node classes are modified with some counters and flags to support learning in conjunction with the project collaborative-robotics/adaptive-b3.
+
+
+
+
+Derived from the [official python version of the Behavior3] (https://github.com/behavior3/behavior3py) library, originally written in Javascript.
 
 NOTE: this version still lacks specific documentation, but almost everything you need can be dig from the javascript-version.
 
