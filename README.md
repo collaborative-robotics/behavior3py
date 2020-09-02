@@ -1,8 +1,8 @@
 # BEHAVIOR3PY
 
-Base BT node classes are modified with some counters and flags to support learning in conjunction with the project collaborative-robotics/adaptive-b3.
+Base BT node classes are modified with some counters and flags to support learning in conjunction with the project collaborative-robotics/adaptive-b3.  
 
-
+A new test, tests/test_basenode_adaptive.py is added to test the adaptive features along with the old tests. 
 
 
 Derived from the [official python version of the Behavior3] (https://github.com/behavior3/behavior3py) library, originally written in Javascript.
@@ -25,3 +25,7 @@ NOTE: this version still lacks specific documentation, but almost everything you
 - **Completely free**, the core module and the visual editor are all published under the MIT License, which means that you can use them for your open source and commercial projects;
 
 - **Lightweight**!
+
+
+## [Wait!  I'm confused about these different BT repositories!](wait_im_confused.md)
+
