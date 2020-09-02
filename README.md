@@ -27,5 +27,5 @@ NOTE: this version still lacks specific documentation, but almost everything you
 - **Lightweight**!
 
 
-## [Wait!  I'm confused about these different BT repositories!](wait_im_confused.md)
+## [Wait!  I'm confused about these different BT repositories!](https://github.com/collaborative-robotics/ABT/blob/main/wait_im_confused.md)
 
