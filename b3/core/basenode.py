@@ -34,9 +34,10 @@ class BaseNode(object):
     # BH  estimate local success probability
     def prob(self):
       if self.N_ticks > 0:
-	      self.Ps = float(self.N_success) / float(self.N_ticks)
+          # empirical success prob.
+	      empPs = float(self.N_success) / float(self.N_ticks)
 	      #print "P(s) = ", self.Ps
-	      return self.Ps
+	      return empPs
       else:
 	      return 0.1
 
