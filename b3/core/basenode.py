@@ -22,7 +22,7 @@ class BaseNode(object):
         self.state = 0              # a variable on which to condition success probs.
         self.N_tik2 = [0, 0, 0, 0]  # number of ticks on each state
         self.N_suc2 = [0, 0, 0, 0]  # prob success conditioned on state
-        self.Ps = 0.0               # P(success)
+        self.Ps = 0.0               # P(success) (fixed param used with stochastic success simulations)
         self.P_selector = 0.0       # probability selected by selector S02
         self.Cost = 0               # Cost of ticking this leaf (INT!)
         self.Utility = 0.0	        # U = P/C
