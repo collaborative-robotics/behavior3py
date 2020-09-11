@@ -36,7 +36,7 @@ class BaseNode(object):
       if self.N_ticks > 0:
           # empirical success prob.
 	      empPs = float(self.N_success) / float(self.N_ticks)
-	      #print "P(s) = ", self.Ps
+	      #print "P(s) = ", empPs
 	      return empPs
       else:
 	      return 0.1
@@ -95,7 +95,6 @@ class BaseNode(object):
     def p_reset(self):
       self.N_ticks = 0
       self.N_success = 0
-      self.Ps = 0
       self.N_tik2 = [0.0,0.0,0.0,0.0]
       self.N_suc2 = [0.0,0.0,0.0,0.0]
 

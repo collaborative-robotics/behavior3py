@@ -40,6 +40,7 @@ class TestBaseNodeAdaptive(unittest.TestCase):
         #node = b3.BaseNode()
         #node = b3.Succeeder()
         node = Tnode_suc()
+        storePs = node.Ps
         
         node.BHdebug = 0
 
@@ -66,11 +67,11 @@ class TestBaseNodeAdaptive(unittest.TestCase):
         assert node.N_success == 0.5*len(range(nticks)) , "incorrect success count"
         assert abs(node.prob() - 0.5) < epsilon, "incorrect frequentist probability"
         
+        assert storePs == node.Ps, 'Success Prob parameter has been munged'
         node.p_reset()  # clear the counters
         assert node.N_ticks == 0, "Error clearing data"
         assert node.N_ticks == 0, "Error clearing data"
         assert node.N_success == 0, "Error clearing data"
-        assert node.Ps == 0, "Error clearing data"
         assert node.N_tik2 == [0.0,0.0,0.0,0.0], "Error clearing data"
         assert node.N_suc2 == [0.0,0.0,0.0,0.0], "Error clearing data"
  
